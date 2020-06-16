@@ -17,11 +17,11 @@ def tweet_create_view(request, *args, **kwargs):
         #do other form related logics
         obj.save()
         form = TweetForm()
-    return render(request, 'components/form.html', context={})
+    return render(request, 'components/form.html', context={"form": form})
 
 def tweet_list_view(request, *args, **kwargs):
     qs = Tweet.objects.all()
-    tweet_list = [{"id": x.id, "content": x.content, "likes": random.randint(0,10000)} for x in qs]
+    tweet_list = [{"id": x.id, "content": x.content, "likes": random.randint(0,1000)} for x in qs]
     data = {
         "isUser": False,
         "response": tweet_list
@@ -31,8 +31,6 @@ def tweet_list_view(request, *args, **kwargs):
 def tweet_detail_view(request, tweet_id, *args, **kwargs):
     data = {
         "id": tweet_id,
-        "content": obj.content,
-        #"image_path": obj.image.url
     }
 
     status = 200

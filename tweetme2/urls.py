@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from tweets.views import home_view, tweet_detail_view, tweet_list_view, tweet_create_view
+from tweets.views import (home_view, tweet_detail_view, tweet_list_view, tweet_create_view,)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
